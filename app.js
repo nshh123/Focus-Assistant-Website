@@ -45,24 +45,29 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Browser Detection for Install Button
+    // Browser Detection for Install Button (Brave requires async API check)
     const installBtn = document.getElementById('install-btn');
     if (installBtn) {
-        const userAgent = navigator.userAgent;
-        let browserName = "Chrome"; // Default
-        
-        if (userAgent.match(/edg/i)) {
-            browserName = "Edge";
-        } else if (userAgent.match(/firefox|fxios/i)) {
-            browserName = "Firefox";
-        } else if (userAgent.match(/opr\//i)) {
-            browserName = "Opera";
-        } else if (userAgent.match(/safari/i) && !userAgent.match(/chrome|chromium|crios/i)) {
-            browserName = "Safari";
-        } else if (userAgent.match(/brave/i)) {
-            browserName = "Brave";
-        }
-        
-        installBtn.textContent = `Install for ${browserName}`;
+        const detectBrowser = async () => {
+            const userAgent = navigator.userAgent;
+
+            // Brave hides itself from userAgent — must use its async API
+            if (navigator.brave && await navigator.brave.isBrave()) {
+                return "Brave";
+            } else if (userAgent.match(/edg/i)) {
+                return "Edge";
+            } else if (userAgent.match(/firefox|fxios/i)) {
+                return "Firefox";
+            } else if (userAgent.match(/opr\//i)) {
+                return "Opera";
+            } else if (userAgent.match(/safari/i) && !userAgent.match(/chrome|chromium|crios/i)) {
+                return "Safari";
+            }
+            return "Chrome"; // Default
+        };
+
+        detectBrowser().then(browserName => {
+            installBtn.textContent = `Install for ${browserName}`;
+        });
     }
 });
