@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Focus Assistant | Reclaim Your Time</title>
+    <meta name="description"
+        content="The ultimate browser extension that systematically enforces focus through dynamic domain blocking, automated tab grouping, and mindful psychological bypasses.">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&family=Outfit:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Background Space Animations -->
+    <div class="stars"></div>
+    <div class="twinkling"></div>
+    <div class="glow-orb top-left"></div>
+    <div class="glow-orb bottom-right"></div>
+
+    <header class="navbar">
+        <div class="container nav-content">
+            <div class="logo" style="display: flex; align-items: center; gap: 8px;">
+                <img src="icon.png" alt="Focus Assistant Icon" width="24" height="24">
+                <span>Focus Assistant</span>
+            </div>
+            <nav class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#how-it-works">How It Works</a>
+                <a href="#philosophy">Philosophy</a>
+            </nav>
+            <a href="#" class="btn btn-primary glass-btn">Get Extension</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero container">
+            <div class="hero-content fade-up">
+                <div class="badge glass-badge">🚀 Version 1.0 is officially live</div>
+                <h1 class="hero-title">Starve your distractions.<br><span class="text-gradient">Feed your focus.</span>
+                </h1>
+                <p class="hero-subtitle">Focus Assistant is a professional-grade browser extension engineered to
+                    automatically group your tabs, brutally block distracting websites, and force you into a state of
+                    deep work.</p>
+                <div class="hero-actions">
+                    <a href="#" id="install-btn" class="btn btn-primary large shadow-glow">Install for Chrome</a>
+                    <a href="#features" class="btn btn-secondary large glass-btn">Explore Features</a>
+                </div>
+            </div>
+
+            <div class="hero-mockup tilt-effect">
+                <div class="mockup-frame glass-panel">
+                    <div class="mockup-header">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                        <div class="url-bar">chrome-extension://focus-assistant/blocked.html</div>
+                    </div>
+                    <div class="mockup-body">
+                        <div class="mockup-shimmer"></div>
+                        <div class="mockup-icon pulse">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--primary)"
+                                stroke-width="1.5">
+                                <path
+                                    d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z">
+                                </path>
+                                <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path>
+                            </svg>
+                        </div>
+                        <h2>Focus Mode Active</h2>
+                        <p>This site is restricted during your dedicated focus hours.</p>
+                        <button class="mockup-btn" style="opacity: 0.5;">Take a Breath (1 Min Access)</button>
+                    </div>
+                </div>
+                <!-- Floating Elements representing features -->
+                <div class="floating-pill float-up delay-1 tooltip glass-panel" style="top: -20px; right: -30px;">
+                    <svg viewBox="0 0 24 24" fill="none" class="icon" stroke="var(--success)" stroke-width="2">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    </svg>
+                    <span>11 Blocked Today</span>
+                </div>
+                <div class="floating-pill float-down delay-2 glass-panel" style="bottom: 20px; left: -40px;">
+                    <svg viewBox="0 0 24 24" fill="none" class="icon" stroke="var(--secondary)" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                    <span>Focus Schedule</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Grid -->
+        <section id="features" class="container features-section">
+            <div class="section-title fade-up">
+                <h2>Designed for <span class="text-gradient">Maximum Productivity</span></h2>
+                <p>We eliminated every possible workaround so you can execute complex tasks.</p>
+            </div>
+
+            <div class="features-grid">
+                <!-- Feature 1 -->
+                <div class="feature-card glass-panel fade-up delay-1">
+                    <div class="feature-icon box-glow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z">
+                            </path>
+                        </svg></div>
+                    <h3>Smart Auto-Grouping</h3>
+                    <p>Open a mapped domain like GitHub? Instantly and natively grouped into a collapsed "Development"
+                        tab group without lifting a finger.</p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="feature-card glass-panel fade-up delay-2">
+                    <div class="feature-icon box-glow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                        </svg></div>
+                    <h3>Right-Click Quick Add</h3>
+                    <p>Stumble onto a highly-distracting rabbit hole? Just right-click the page anywhere and inject it
+                        directly into the block cache dynamically.</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="feature-card glass-panel fade-up delay-3">
+                    <div class="feature-icon box-glow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M12 2v20M17 5H7M17 19H7"></path>
+                        </svg></div>
+                    <h3>Forgiving Mode Bypasses</h3>
+                    <p>Absolutely need rapid access? Watch a 5-second mandatory psychological breathing animation to
+                        unlock a 1-minute window—strictly limited to 5 hours.</p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="feature-card glass-panel fade-up delay-4">
+                    <div class="feature-icon box-glow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M12 22v-5"></path>
+                            <path d="M9 8V2"></path>
+                            <path d="M15 8V2"></path>
+                            <path d="M5 8v-.01"></path>
+                            <path d="M19 8v-.01"></path>
+                            <path d="M16 11h-8"></path>
+                            <path d="M16 14h-8"></path>
+                            <path d="M22 22H2"></path>
+                            <path d="M12 20h.01"></path>
+                        </svg></div>
+                    <h3>In-Browser Alert Banners</h3>
+                    <p>No generic OS notifications. Custom slick bottom-right sliding banners trigger auditory pings
+                        natively utilizing an integrated Web Audio synthesizer.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- How it works -->
+        <section id="how-it-works" class="workflow container">
+            <div class="workflow-content fade-up">
+                <h2>Set it and <span class="text-gradient">forget it.</span></h2>
+                <div class="step-container">
+                    <div class="step">
+                        <div class="step-number">01</div>
+                        <div>
+                            <h4>Define Your Block Hours</h4>
+                            <p>Configure exactly what hours of the day you intend to execute deep work.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">02</div>
+                        <div>
+                            <h4>Map The Distractions</h4>
+                            <p>Preload domains or quickly categorize them safely mapping them inside the UI cache.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">03</div>
+                        <div>
+                            <h4>Enter Maximum Velocity</h4>
+                            <p>Once focus hours trigger, the shield slams shut rendering targeted sites completely
+                                inaccessible without mathematical delay.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="workflow-image fade-up delay-2 tilt-effect glass-panel">
+                <div class="app-mockup">
+                    <div class="app-row header">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="rgba(139, 92, 246, 1)" stroke-width="2" width="20">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        </svg>
+                        <strong>Analytics Panel</strong>
+                    </div>
+                    <div class="app-row item">
+                        <span>Distractions Killed</span>
+                        <strong style="color: var(--success);">14 Blocked Today</strong>
+                    </div>
+                    <div class="app-row item">
+                        <span>Current Phase</span>
+                        <strong style="color: var(--primary);">Active Focus</strong>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Philosophy Section -->
+        <section id="philosophy" class="container features-section">
+            <div class="section-title fade-up">
+                <h2>Our <span class="text-gradient">Philosophy</span></h2>
+                <p style="max-width: 600px; margin: 0 auto;">
+                    We believe your time is the most valuable asset you have. In an age of infinite scrolling and
+                    weaponized algorithms, radical measures are necessary to protect your attention and foster deep,
+                    meaningful work. Focus Assistant isn't just a tool; it's a commitment to your own potential.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="app-footer">
+        <div class="container footer-content">
+            <div class="footer-title" style="display: flex; align-items: center; gap: 8px;">
+                <img src="icon.png" alt="Focus Assistant Icon" width="24" height="24">
+                Focus Assistant
+            </div>
+            <p style="color: var(--text-dark); font-size: 0.9rem;">Engineered for pristine focus.<br> Built securely on
+                Manifest V3 architecture.</p>
+            <p style="color: var(--text-dark); font-size: 0.8rem; margin-top: 10px;">Copyright &copy; nshh123</p>
+            <a href="https://github.com/nshh123" class="footer-link">
+                View Source on GitHub
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+                    <path
+                        d="M12 0C5.37 0 0 5.373 0 12c0 5.302 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.605-.015 2.896-.015 3.286 0 .315.21.69.825.57A12.02 12.02 0 0 0 24 12c0-6.627-5.373-12-12-12z">
+                    </path>
+                </svg>
+            </a>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
