@@ -45,29 +45,35 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Browser Detection for Install Button (Brave requires async API check)
+    // Browser Detection for Install Button + Mockup URL Bar (Brave requires async API check)
     const installBtn = document.getElementById('install-btn');
-    if (installBtn) {
-        const detectBrowser = async () => {
-            const userAgent = navigator.userAgent;
+    const urlBar = document.getElementById('mockup-url-bar');
 
-            // Brave hides itself from userAgent — must use its async API
-            if (navigator.brave && await navigator.brave.isBrave()) {
-                return "Brave";
-            } else if (userAgent.match(/edg/i)) {
-                return "Edge";
-            } else if (userAgent.match(/firefox|fxios/i)) {
-                return "Firefox";
-            } else if (userAgent.match(/opr\//i)) {
-                return "Opera";
-            } else if (userAgent.match(/safari/i) && !userAgent.match(/chrome|chromium|crios/i)) {
-                return "Safari";
-            }
-            return "Chrome"; // Default
-        };
+    const browserSchemes = {
+        Chrome:  'chrome-extension',
+        Brave:   'chrome-extension',   // Brave uses Chrome's scheme
+        Opera:   'chrome-extension',   // Opera also uses Chrome's scheme
+        Edge:    'extension',
+        Firefox: 'moz-extension',
+        Safari:  'safari-web-extension',
+    };
 
-        detectBrowser().then(browserName => {
-            installBtn.textContent = `Install for ${browserName}`;
-        });
-    }
+    const detectBrowser = async () => {
+        const ua = navigator.userAgent;
+        // Brave hides itself from userAgent — must use its async API
+        if (navigator.brave && await navigator.brave.isBrave()) return 'Brave';
+        if (ua.match(/edg/i))                                   return 'Edge';
+        if (ua.match(/firefox|fxios/i))                         return 'Firefox';
+        if (ua.match(/opr\//i))                                 return 'Opera';
+        if (ua.match(/safari/i) && !ua.match(/chrome|chromium|crios/i)) return 'Safari';
+        return 'Chrome';
+    };
+
+    detectBrowser().then(browserName => {
+        if (installBtn) installBtn.textContent = `Install for ${browserName}`;
+        if (urlBar) {
+            const scheme = browserSchemes[browserName] || 'chrome-extension';
+            urlBar.textContent = `${scheme}://focus-assistant/blocked.html`;
+        }
+    });
 });
