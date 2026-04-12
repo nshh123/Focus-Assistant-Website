@@ -76,4 +76,79 @@ document.addEventListener('DOMContentLoaded', () => {
             urlBar.textContent = `${scheme}://focus-assistant/blocked.html`;
         }
     });
+
+    // ── Section Filtering via Nav Links ──
+    const navLinks = document.querySelectorAll('.nav-links a[data-target]');
+    const filterableSections = document.querySelectorAll('[data-nav-section]');
+    const heroSection = document.querySelector('.hero');
+    const navHome = document.getElementById('nav-home');
+
+    function showAllSections() {
+        filterableSections.forEach(sec => {
+            sec.style.display = '';
+            sec.style.opacity = '';
+            // Re-trigger fade-up animation
+            if (sec.classList.contains('fade-up')) {
+                sec.classList.remove('visible');
+                void sec.offsetWidth; // force reflow
+                observer.observe(sec);
+            }
+            // Also re-observe inner fade-up elements
+            sec.querySelectorAll('.fade-up').forEach(el => {
+                el.classList.remove('visible');
+                void el.offsetWidth;
+                observer.observe(el);
+            });
+        });
+        navLinks.forEach(l => l.classList.remove('nav-active'));
+    }
+
+    function filterToSection(targetKey) {
+        filterableSections.forEach(sec => {
+            if (sec.getAttribute('data-nav-section') === targetKey) {
+                sec.style.display = '';
+                sec.style.opacity = '';
+                // Re-trigger animations
+                if (sec.classList.contains('fade-up')) {
+                    sec.classList.remove('visible');
+                    void sec.offsetWidth;
+                    observer.observe(sec);
+                }
+                sec.querySelectorAll('.fade-up').forEach(el => {
+                    el.classList.remove('visible');
+                    void el.offsetWidth;
+                    observer.observe(el);
+                });
+            } else {
+                sec.style.display = 'none';
+            }
+        });
+
+        // Highlight active nav link
+        navLinks.forEach(l => {
+            l.classList.toggle('nav-active', l.getAttribute('data-target') === targetKey);
+        });
+    }
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const target = link.getAttribute('data-target');
+            filterToSection(target);
+            // Scroll to the first visible target section
+            const firstVisible = document.querySelector(`[data-nav-section="${target}"]`);
+            if (firstVisible) {
+                firstVisible.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
+
+    // Logo click → show all
+    if (navHome) {
+        navHome.addEventListener('click', (e) => {
+            e.preventDefault();
+            showAllSections();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
 });

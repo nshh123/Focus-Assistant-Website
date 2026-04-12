@@ -23,15 +23,15 @@
 
     <header class="navbar">
         <div class="container nav-content">
-            <div class="logo">
+            <a href="#" class="logo" id="nav-home">
                 <img src="icon.png" alt="Focus Assistant Icon" width="24" height="24">
                 <span>Focus Assistant</span>
-            </div>
+            </a>
             <nav class="nav-links">
-                <a href="#features">Features</a>
-                <a href="#how-it-works">How It Works</a>
-                <a href="#privacy">Privacy</a>
-                <a href="#philosophy">Philosophy</a>
+                <a href="#features" data-target="features">Features</a>
+                <a href="#how-it-works" data-target="how-it-works">How It Works</a>
+                <a href="#privacy" data-target="privacy">Privacy</a>
+                <a href="#philosophy" data-target="philosophy">Philosophy</a>
             </nav>
             <a href="#" class="btn btn-primary glass-btn">Get Extension</a>
         </div>
@@ -101,7 +101,7 @@
         </section>
 
         <!-- Stats Bar -->
-        <section class="stats-bar container fade-up">
+        <section class="stats-bar container fade-up" data-nav-section="features">
             <div class="stat-item">
                 <span class="stat-number text-gradient">8</span>
                 <span class="stat-label">Core Features</span>
@@ -124,7 +124,7 @@
         </section>
 
         <!-- Features Grid -->
-        <section id="features" class="container features-section">
+        <section id="features" class="container features-section" data-nav-section="features">
             <div class="section-title fade-up">
                 <h2>Designed for <span class="text-gradient">Maximum Productivity</span></h2>
                 <p>Every feature is purpose-built to eliminate friction, enforce your intentions, and protect your most
@@ -207,7 +207,7 @@
         </section>
 
         <!-- Categories Showcase -->
-        <section class="container categories-section fade-up">
+        <section class="container categories-section fade-up" data-nav-section="features">
             <div class="section-title">
                 <h2>4 Intelligent <span class="text-gradient">Default Categories</span></h2>
                 <p>Ready to use out of the box. Fully editable. Infinitely extensible.</p>
@@ -253,7 +253,7 @@
         </section>
 
         <!-- How it works -->
-        <section id="how-it-works" class="workflow container">
+        <section id="how-it-works" class="workflow container" data-nav-section="how-it-works">
             <div class="workflow-content fade-up">
                 <h2>Set it and <span class="text-gradient">forget it.</span></h2>
                 <div class="step-container">
@@ -316,7 +316,7 @@
         </section>
 
         <!-- Privacy Section -->
-        <section id="privacy" class="container privacy-section fade-up">
+        <section id="privacy" class="container privacy-section fade-up" data-nav-section="privacy">
             <div class="privacy-inner glass-panel">
                 <div class="privacy-icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="1.5" width="48" height="48"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
@@ -335,7 +335,7 @@
         </section>
 
         <!-- Philosophy Section -->
-        <section id="philosophy" class="container features-section">
+        <section id="philosophy" class="container features-section" data-nav-section="philosophy">
             <div class="section-title fade-up">
                 <h2>Our <span class="text-gradient">Philosophy</span></h2>
                 <p style="max-width: 600px; margin: 0 auto;">
@@ -347,7 +347,7 @@
         </section>
 
         <!-- Browser Compatibility -->
-        <section class="container compat-section fade-up">
+        <section class="container compat-section fade-up" data-nav-section="privacy">
             <div class="section-title">
                 <h2>Built for <span class="text-gradient">Your Browser</span></h2>
                 <p>Powered by Manifest V3 — the modern, secure extension standard.</p>
