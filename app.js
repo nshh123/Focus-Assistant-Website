@@ -135,10 +135,12 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             const target = link.getAttribute('data-target');
             filterToSection(target);
-            // Scroll to the first visible target section
+            // Scroll with navbar offset so section isn't hidden behind the fixed header
             const firstVisible = document.querySelector(`[data-nav-section="${target}"]`);
             if (firstVisible) {
-                firstVisible.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                const navbarHeight = document.querySelector('.navbar')?.offsetHeight || 80;
+                const top = firstVisible.getBoundingClientRect().top + window.scrollY - navbarHeight - 16;
+                window.scrollTo({ top, behavior: 'smooth' });
             }
         });
     });
