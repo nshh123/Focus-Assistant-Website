@@ -45,14 +45,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Browser Detection for Install Button + Mockup URL Bar (Brave requires async API check)
+    // Browser Detection for Install Button + Mockup URL Bar
     const installBtn = document.getElementById('install-btn');
+    const navInstallBtn = document.querySelector('.navbar .btn');
     const urlBar = document.getElementById('mockup-url-bar');
 
     const browserSchemes = {
         Chrome:  'chrome-extension',
-        Brave:   'chrome-extension',   // Brave uses Chrome's scheme
-        Opera:   'chrome-extension',   // Opera also uses Chrome's scheme
+        Brave:   'chrome-extension',
+        Opera:   'chrome-extension',
         Edge:    'extension',
         Firefox: 'moz-extension',
         Safari:  'safari-web-extension',
@@ -60,7 +61,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const detectBrowser = async () => {
         const ua = navigator.userAgent;
-        // Brave hides itself from userAgent — must use its async API
         if (navigator.brave && await navigator.brave.isBrave()) return 'Brave';
         if (ua.match(/edg/i))                                   return 'Edge';
         if (ua.match(/firefox|fxios/i))                         return 'Firefox';
@@ -69,8 +69,39 @@ document.addEventListener('DOMContentLoaded', () => {
         return 'Chrome';
     };
 
+    const browserLinks = {
+        Edge: 'https://microsoftedge.microsoft.com/addons/detail/lcpmmpbbanaanpbolikagikacmegmiga',
+        Chrome: '#',
+        Brave: '#'
+    };
+
     detectBrowser().then(browserName => {
-        if (installBtn) installBtn.textContent = `Install for ${browserName}`;
+        const secondaryMsg = document.getElementById('secondary-install-msg');
+
+        if (navInstallBtn && browserName === 'Edge') {
+            navInstallBtn.href = browserLinks.Edge;
+            navInstallBtn.target = '_blank';
+        }
+        
+        if (installBtn) {
+            if (browserName === 'Edge') {
+                installBtn.textContent = 'Install for Edge';
+                installBtn.href = browserLinks.Edge;
+                installBtn.target = '_blank';
+            } else {
+                // Handling for Chrome, Brave, Firefox, etc.
+                installBtn.innerHTML = `<span>Coming Soon for ${browserName}</span>`;
+                installBtn.style.opacity = '0.9';
+                installBtn.style.cursor = 'default';
+                installBtn.classList.remove('shadow-glow');
+                installBtn.classList.add('glass-btn');
+                
+                if (secondaryMsg) {
+                    secondaryMsg.style.display = 'block';
+                }
+            }
+        }
+
         if (urlBar) {
             const scheme = browserSchemes[browserName] || 'chrome-extension';
             urlBar.textContent = `${scheme}://focus-assistant/blocked.html`;

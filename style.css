@@ -111,6 +111,7 @@ a {
 .text-gradient {
   background: linear-gradient(135deg, var(--primary), #d8b4fe);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -423,6 +424,7 @@ a {
   margin-bottom: 10px;
   background: linear-gradient(to right, #e2e8f0, #94a3b8);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -907,6 +909,28 @@ a {
   transform: translateY(-4px);
   border-color: rgba(139, 92, 246, 0.3);
   color: var(--text-main);
+}
+
+.status-badge {
+  font-size: 0.65rem;
+  padding: 2px 10px;
+  border-radius: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 4px;
+}
+
+.status-available {
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--success);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.status-soon {
+  background: rgba(59, 130, 246, 0.1);
+  color: var(--secondary);
+  border: 1px solid rgba(59, 130, 246, 0.2);
 }
 
 /* ── Tablet (≤ 900px) ── */

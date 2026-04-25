@@ -51,6 +51,10 @@
                     <a href="#" id="install-btn" class="btn btn-primary large shadow-glow">Install for Chrome</a>
                     <a href="#features" class="btn btn-secondary large glass-btn">Explore Features</a>
                 </div>
+                <!-- Secondary Install Message -->
+                <div id="secondary-install-msg" style="margin-top: 16px; font-size: 0.85rem; color: var(--text-muted); display: none;">
+                    Already live on <a href="https://microsoftedge.microsoft.com/addons/detail/lcpmmpbbanaanpbolikagikacmegmiga" target="_blank" style="color: var(--primary-light); font-weight: 600; text-decoration: underline;">Microsoft Edge</a>
+                </div>
                 <!-- Privacy micro-badge -->
                 <div class="privacy-badge">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -429,17 +433,20 @@
                 <p>Powered by Manifest V3 — the modern, secure extension standard.</p>
             </div>
             <div class="compat-grid">
-                <div class="compat-card glass-panel">
+                <div class="compat-card glass-panel" id="compat-chrome">
                     <img src="chrome.svg" alt="Google Chrome Logo" width="48" height="48">
                     <span>Google Chrome</span>
+                    <span class="status-badge status-soon">Launching Soon</span>
                 </div>
-                <div class="compat-card glass-panel">
+                <div class="compat-card glass-panel" id="compat-edge">
                     <img src="edge.svg" alt="Microsoft Edge Logo" width="48" height="48">
                     <span>Microsoft Edge</span>
+                    <span class="status-badge status-available">Available</span>
                 </div>
-                <div class="compat-card glass-panel">
+                <div class="compat-card glass-panel" id="compat-brave">
                     <img src="brave.svg" alt="Brave Browser Logo" width="48" height="48">
                     <span>Brave</span>
+                    <span class="status-badge status-soon">Launching Soon</span>
                 </div>
             </div>
         </section>
