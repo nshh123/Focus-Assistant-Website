@@ -78,9 +78,16 @@ document.addEventListener('DOMContentLoaded', () => {
     detectBrowser().then(browserName => {
         const secondaryMsg = document.getElementById('secondary-install-msg');
 
-        if (navInstallBtn && browserName === 'Edge') {
-            navInstallBtn.href = browserLinks.Edge;
-            navInstallBtn.target = '_blank';
+        if (navInstallBtn) {
+            if (browserName === 'Edge') {
+                navInstallBtn.href = browserLinks.Edge;
+                navInstallBtn.target = '_blank';
+            } else {
+                navInstallBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    alert('Please switch to Microsoft Edge to install the Focus Assistant extension.');
+                });
+            }
         }
         
         if (installBtn) {

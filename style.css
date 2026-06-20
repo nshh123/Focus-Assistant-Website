@@ -269,6 +269,20 @@ a {
   border-color: var(--glass-highlight);
 }
 
+.btn-secondary {
+  background: rgba(59, 130, 246, 0.15);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  color: #bfdbfe;
+  backdrop-filter: blur(10px);
+}
+
+.btn-secondary:hover {
+  background: rgba(59, 130, 246, 0.25);
+  border-color: rgba(59, 130, 246, 0.6);
+  color: #ffffff;
+}
+
+
 /* Hero Section */
 .hero {
   padding: 120px 24px 100px;
