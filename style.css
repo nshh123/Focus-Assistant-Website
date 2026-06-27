@@ -724,11 +724,12 @@ a {
 /* Privacy micro-badge in hero */
 .privacy-badge {
   display: inline-flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 7px;
   margin-top: 20px;
   font-size: 0.8rem;
   color: var(--text-muted);
+  text-align: left;
 }
 
 .privacy-badge svg {
@@ -736,6 +737,8 @@ a {
   height: 14px;
   color: var(--success);
   stroke: var(--success);
+  flex-shrink: 0;
+  margin-top: 3px;
 }
 
 /* Mockup quote */
