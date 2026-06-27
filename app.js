@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const browserLinks = {
         Edge: 'https://microsoftedge.microsoft.com/addons/detail/lcpmmpbbanaanpbolikagikacmegmiga',
         Chrome: 'https://chromewebstore.google.com/detail/gdponblnmkoilofphdpofjfndnclmlje',
-        Brave: '#'
+        Brave: 'https://chromewebstore.google.com/detail/gdponblnmkoilofphdpofjfndnclmlje'
     };
 
     detectBrowser().then(browserName => {
@@ -82,8 +82,8 @@ document.addEventListener('DOMContentLoaded', () => {
             if (browserName === 'Edge') {
                 navInstallBtn.href = browserLinks.Edge;
                 navInstallBtn.target = '_blank';
-            } else if (browserName === 'Chrome') {
-                navInstallBtn.href = browserLinks.Chrome;
+            } else if (browserName === 'Chrome' || browserName === 'Brave') {
+                navInstallBtn.href = browserLinks[browserName];
                 navInstallBtn.target = '_blank';
             } else {
                 navInstallBtn.addEventListener('click', (e) => {
@@ -98,9 +98,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 installBtn.textContent = 'Install for Edge';
                 installBtn.href = browserLinks.Edge;
                 installBtn.target = '_blank';
-            } else if (browserName === 'Chrome') {
-                installBtn.textContent = 'Install for Chrome';
-                installBtn.href = browserLinks.Chrome;
+            } else if (browserName === 'Chrome' || browserName === 'Brave') {
+                installBtn.textContent = `Install for ${browserName}`;
+                installBtn.href = browserLinks[browserName];
                 installBtn.target = '_blank';
             } else {
                 // Handling for Brave, Firefox, etc.
