@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const browserLinks = {
         Edge: 'https://microsoftedge.microsoft.com/addons/detail/lcpmmpbbanaanpbolikagikacmegmiga',
-        Chrome: '#',
+        Chrome: 'https://chromewebstore.google.com/detail/gdponblnmkoilofphdpofjfndnclmlje',
         Brave: '#'
     };
 
@@ -82,10 +82,13 @@ document.addEventListener('DOMContentLoaded', () => {
             if (browserName === 'Edge') {
                 navInstallBtn.href = browserLinks.Edge;
                 navInstallBtn.target = '_blank';
+            } else if (browserName === 'Chrome') {
+                navInstallBtn.href = browserLinks.Chrome;
+                navInstallBtn.target = '_blank';
             } else {
                 navInstallBtn.addEventListener('click', (e) => {
                     e.preventDefault();
-                    alert('Please switch to Microsoft Edge to install the Focus Assistant extension.');
+                    alert('Please switch to Microsoft Edge or Google Chrome to install the Focus Assistant extension.');
                 });
             }
         }
@@ -95,8 +98,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 installBtn.textContent = 'Install for Edge';
                 installBtn.href = browserLinks.Edge;
                 installBtn.target = '_blank';
+            } else if (browserName === 'Chrome') {
+                installBtn.textContent = 'Install for Chrome';
+                installBtn.href = browserLinks.Chrome;
+                installBtn.target = '_blank';
             } else {
-                // Handling for Chrome, Brave, Firefox, etc.
+                // Handling for Brave, Firefox, etc.
                 installBtn.innerHTML = `<span>Coming Soon for ${browserName}</span>`;
                 installBtn.style.opacity = '0.9';
                 installBtn.style.cursor = 'default';
